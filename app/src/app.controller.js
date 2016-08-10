@@ -68,7 +68,7 @@
       goToModal('addBookModal');
       setTimeout(function () {
         $("#inputTitle").focus();
-      }, 100);
+      }, 400);
     }
 
     /**
@@ -87,7 +87,12 @@
     * @namespace bookSelected
     */
     function addBookSelected(book){
-      ctrl.selectBook = new Book(book.title, book.author_name, book.isbn);
+      console.log(book);
+      var bookIDs = book.isbn;
+      if(typeof bookIDs === "undefined"){
+        bookIDs = book.edition_key;
+      }
+      ctrl.selectBook = new Book(book.title, book.author_name, bookIDs);
       ctrl.hideSave = false;
       goToModal("selectBookModal");
     }
