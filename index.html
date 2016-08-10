@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-strict-di>
+<head>
+  <meta charset="UTF-8">
+  <title>DevGrid Project - by Rafael Bruno</title>
+
+  <link rel="icon" href="app/assets/img/favicon.png" />
+  <link rel="stylesheet" href="app/build/css/style.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="vendor/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="vendor/bootstrap-material-design/dist/css/ripples.min.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="vendor/toastr/toastr.min.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Kreon' rel='stylesheet' type='text/css'>
+  <link href='app/assets/pace/pace.css' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+
+  <div data-ng-include="'app/src/view/navBar.html'"></div>
+  <!-- CONTENT -->
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div ui-view></div>
+    </div>
+  </div>
+
+  <!-- JQUERY -->
+  <script src="vendor/jquery/dist/jquery.min.js" charset="utf-8"></script>
+
+  <!-- BOOTSTRAP -->
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="vendor/bootstrap-material-design/dist/js/material.min.js" charset="utf-8"></script>
+  <script src="vendor/bootstrap-material-design/dist/js/ripples.min.js" charset="utf-8"></script>
+
+  <!-- ANGULAR -->
+  <script src="vendor/angular/angular.min.js" charset="utf-8"></script>
+  <script src="vendor/angular-route/angular-route.min.js" charset="utf-8"></script>
+  <script src="vendor/angular-resource/angular-resource.min.js" charset="utf-8"></script>
+  <script src="vendor/angular-cookies/angular-cookies.min.js" charset="utf-8"></script>
+  <script src="vendor/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
+  <script src="vendor/angular-sanitize/angular-sanitize.min.js" charset="utf-8"></script>
+
+  <!-- VENDOR -->
+  <script src="vendor/toastr/toastr.min.js" charset="utf-8"></script>
+  <script src="vendor/moment/min/moment.min.js" charset="utf-8"></script>
+  <script src="vendor/underscore/underscore-min.js" charset="utf-8"></script>
+  <script src="app/assets/pace/pace.min.js" charset="utf-8"></script>
+  <script src="app/assets/jQueryMask/dist/jquery.mask.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <!-- JS -->
+  <script src="app/build/js/app.js" charset="utf-8"></script>
+
+</body>
+</html>

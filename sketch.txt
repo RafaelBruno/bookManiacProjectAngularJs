@@ -1,0 +1,8 @@
+--:: Tasks ::--
+
+- Create the project:
+- Create Structure:
+- Create Module:
+- Create Controller:
+- Create View:
+- Create Front-End Tests:

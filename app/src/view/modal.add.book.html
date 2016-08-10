@@ -1,0 +1,120 @@
+<div id="addBookModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title"><center>Find a Book by Title</center></h4>
+      </div>
+      <div class="modal-body">
+        <fieldset class="panel-body">
+          <div class="form-group">
+            <div class="col-lg-12">
+              <input type="text" class="form-control" id="inputTitle" ng-model="ctrl.titleSearch" placeholder="Title">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.searchBooksInOpenLibrary(ctrl.titleSearch)">Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="listOfBooksOpenLibrary" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title"><center>Select a Book</center></h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped table-hover" ng-show="ctrl.booksFound.length !== 0">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Author</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="cursor" ng-repeat="book in ctrl.booksFound track by $index" ng-click="ctrl.addBookSelected(book)">
+              <td>{{$index + 1}}</td>
+              <td>{{book.title}}</td>
+              <td><span ng-repeat="author in book.author_name track by $index">{{author}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 ng-show="ctrl.booksFound.length === 0"><center>0 Books Found</center></h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="selectBookModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title"><center>{{ctrl.selectBook.title}}</center></h4>
+      </div>
+      <div class="modal-body">
+        <fieldset class="panel-body">
+          <div class="row">
+            <div class="col-lg-4">
+              <center>
+                <img src="{{ctrl.selectBook.cover}}"/>
+              </center>
+            </div>
+            <div class="col-lg-8">
+              <div class="form-group">
+                <h4><i>Title:&ensp;</i><b>{{ctrl.selectBook.title}}</b></h4>
+              </div>
+              <div class="form-group">
+                <h4><i>Author(s):&ensp;</i><span ng-repeat="author in ctrl.selectBook.author">{{author}}</span><span ng-hide="($index + 1) === ctrl.selectBook.author.length">,</span></h4>
+              </div>
+
+              <div class="form-group" ng-show="ctrl.selectBook.read">
+                <h4><i>Reading Date:&ensp;</i> {{ctrl.selectBook.read.readDate}}</h4>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-hide="ctrl.hideSave" ng-click="ctrl.save(ctrl.selectBook)">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="checkBookModal" class="modal fade">
+  <div class="modal-dialog" style="width:40%!important;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Date that You Read this Book</h4>
+      </div>
+      <div class="modal-body">
+        <fieldset class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <input type="text" class="form-control" id="inputTitle" ng-model="ctrl.selectBook.read.readDate" placeholder="ex: 21/12/2012" input-date />
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.saveReadBook(ctrl.selectBook)">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

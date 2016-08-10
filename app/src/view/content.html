@@ -1,0 +1,60 @@
+<div class="row">
+  <div id="listItens" class="col-lg-12">
+    <h2 id="topTitle"><center>My Books <small>({{ctrl.myBooks.length}})</small></center></h2>
+    <div class="col-lg-12" ng-show="ctrl.myBooks.length !== 0">
+      <div class="panel">
+        <div class="panel-body">
+          <input type="text" class="form-control icon-unicode" ng-model="ctrl.find" id="find" placeholder="&#xf002;&ensp;Find a Book">
+        </div>
+      </div>
+    </div>
+    <br>
+    <div id="content">
+      <div class="col-lg-12">
+        <div id="myBooks" class="panel">
+          <div class="panel-body">
+            <table class="table table-striped" ng-show="ctrl.myBooks.length !== 0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Book Name</th>
+                  <th>Autor(s)</th>
+                  <th>Look</th>
+                  <th>Read</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="book in ctrl.myBooks | filter: ctrl.find">
+                  <td>{{$index + 1}}</td>
+                  <td>{{book.title}}</td>
+                  <td><span ng-repeat="author in book.author">{{author}}</span><span ng-hide="($index + 1) === book.author.length">,</span></td>
+                  <td><a class="cursor" ng-click="ctrl.lookBook(book)"><i class="fa fa-eye"></i></a></td>
+                  <td>
+                    <a class="cursor" ng-click="ctrl.checkBook(book)">
+                      <i ng-show="book.read" class="fa fa-check-square-o"></i>
+                      <i ng-show="!book.read" class="fa fa-square-o"></i>
+                    </a>
+                  </td>
+                  <td><a class="cursor" ng-click="ctrl.deleteBook(book)"><i class="fa fa-trash"></i></a></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3 id="zeroBooksInListMessage" ng-show="ctrl.myBooks.length === 0">
+              <center>
+                You do not have any book yet :(
+              </center>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD BTN -->
+<a id="addBtn" ng-click="ctrl.addBook()" class="btn btn-primary btn-fab"><i class="fa fa-plus"></i></a>
+
+<!-- MODALS -->
+<div data-ng-include="'app/src/view/modal.add.book.html'"></div>
