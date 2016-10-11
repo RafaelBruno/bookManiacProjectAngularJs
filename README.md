@@ -1,10 +1,8 @@
-# devGridProject
-Book Maniac Application 
-
+# Book Maniac Application with AngularJs
 
 Technologies used in the project:
 
-● AngularJS 
+● AngularJS 1.5
 ● Bootstrap 
 ● Grunt 
 ● Less 
